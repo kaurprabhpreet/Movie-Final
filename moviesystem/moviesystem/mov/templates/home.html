@@ -1,0 +1,38 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+{% block title %}Home page{% endblock %}
+
+{% block content %}<style>
+    p{
+        text-align:center;
+        color:white;
+        font-size: 30px;
+        position:relative;
+        top: 100px;
+    }
+    #searchbox{
+        position:relative;
+        top:100px;
+        left:500px;
+        width:500px;
+        height:40px;
+        
+    }
+    #searchbt{
+        position:relative;
+        top:170px;
+        left:180px;
+        padding: 5px;
+    }
+</style>
+    <section>
+        <p> Can't decide, what to watch??
+            No Problem, Just Smile 
+            You got it all sorted now by just clickin below!!!!
+        </p>
+        
+    
+        <input type="search" placeholder="Enter your movie name or genre or director" id="searchbox">
+        <button id="searchbt">SEARCH</button>
+    </section>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        h1{
+            background-color:#444140;
+            text-align: center;
+            line-height: 80px;
+            font-size : 40px;
+            color: red;
+            margin-bottom: 0;
+        }
+        footer{
+            background-color: rgb(207, 180, 155);
+            text-align:center;
+        }     
+        .navbar{
+            color:black;
+            margin-right:180px;
+            text-decoration:none;
+            background-color: #F7EBE8;
+        }   
+        #bar{
+            background-color: #F7EBE8;
+            line-height:40px;
+            text-align:center;
+        }
+        #space{
+            height:400px;
+            background-image: url("{% static 'felix-mooneeram-evlkOfkQ5rE-unsplash.jpg' %}");
+            background-size: contain;
+        }
+        #logo{
+            position:relative;
+            right:100px;
+            top:15px;         
+        }
+
+        .alert-error {
+            background-color: red;
+            display: inline-block;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img  src="{% static 'LOGO.jpg' %}" alt="logo"height=80px >
+            <span>Movie Recommendation System</span></h1>
+        <nav>
+            <div id="bar">
+            <a href="{% url 'home' %}" class="navbar">HOME</a>
+            <a href="rating.html" class="navbar">RATING</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="navbar">MY PROFILE</a>
+                <a href="{% url 'logout' %}" class="navbar">LOGOUT</a>
+            {% else %}
+                <a href="{% url 'register' %}" class="navbar">REGISTER</a>
+                <a href="{% url 'login' %}" class="navbar">LOGIN</a>
+            {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main id="space">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <pre>
+             MADE WITH &#9829; LOVE 
+       HOPE YOU HAVE A GOOD EXPERIENCE USING THIS.
+       For Query, Contact us at pkindia.arora@gmail.com
+       &copy; copyright. All rights reserved. 
+        </pre>
+    </footer>
+</body>
+</html>
